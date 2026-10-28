@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="Discover materials, surplus goods, and equipment on TradeBridge.">
+  <title>TradeBridge — Trade, connect, reuse</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body class="is-loading needs-login">
+
+  <div class="intro" id="introLoader">
+    <header class="intro-header">
+      <a class="brand brand-dark" href="#home" aria-label="TradeBridge home">
+        <span class="brand-icon" aria-hidden="true">
+          <span class="brand-orbit orbit-orange"></span>
+          <span class="brand-orbit orbit-gold"></span>
+          <span class="brand-dot"></span>
+          <span class="brand-letters"><b>T</b><b>B</b></span>
+        </span>
+        <span class="brand-name">
+          <strong>Trade<span>Bridge</span></strong>
+          <small>TRADE · CONNECT · REUSE</small>
+        </span>
+      </a>
+      <span class="intro-location">MARKETPLACE <i>•</i> INDIA</span>
+    </header>
+
+    <main class="intro-stage">
+      <div class="intro-orbit intro-orbit-outer"></div>
+      <div class="intro-orbit intro-orbit-inner"></div>
+      <div class="intro-connection" aria-hidden="true">
+        <span class="connection-node supplier-node"><b>01</b><small>SUPPLIER</small></span>
+        <svg viewBox="0 0 900 180" preserveAspectRatio="none">
+          <path class="connection-track" d="M8 135 C170 135 185 35 350 55 S550 165 695 90 S830 45 892 48"/>
+          <path class="connection-glow" d="M8 135 C170 135 185 35 350 55 S550 165 695 90 S830 45 892 48"/>
+        </svg>
+        <span class="connection-spark">✳</span>
+        <span class="connection-node buyer-node"><b>02</b><small>BUYER</small></span>
+      </div>
+      <section class="intro-copy">
+        <p class="intro-kicker">WHERE USEFUL GOODS FIND NEW PURPOSE</p>
+        <h1>Making good<br><em>connections.</em></h1>
+        <p class="intro-description">Materials, makers, new possibilities.</p>
+        <div class="intro-pills">
+          <span>RAW MATERIALS</span><i>✳</i>
+          <span>SURPLUS</span><i>✳</i>
+          <span>EQUIPMENT</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="intro-footer">
+      <span class="loading-label">CONNECTING THE MARKETPLACE</span>
+      <div class="loading-track"><span id="loaderProgress"></span></div>
+      <b class="loading-number" id="loaderPercent">00%</b>
+      <strong class="loading-brand">TRADEBRIDGE <i>✳</i></strong>
+    </footer>
+    <button class="skip-intro" id="skipIntro" type="button">
+      Skip intro <span aria-hidden="true">↗</span>
+    </button>
+  </div>
+
+  <div class="site" id="home">
+    <header class="site-header">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sidePanel">☰</button>
+      <a class="brand" href="#home" aria-label="TradeBridge home">
+        <span class="brand-icon" aria-hidden="true">
+          <span class="brand-orbit orbit-orange"></span>
+          <span class="brand-orbit orbit-gold"></span>
+          <span class="brand-dot"></span>
+          <span class="brand-letters"><b>T</b><b>B</b></span>
+        </span>
+        <span class="brand-name">
+          <strong>Trade<span>Bridge</span></strong>
+          <small>TRADE · CONNECT · REUSE</small>
+        </span>
+      </a>
+      <div class="header-account" id="accountWidget" hidden>
+        <span class="user-avatar" id="userInitial" aria-hidden="true">T</span>
+        <span class="user-copy"><strong>Welcome, <span id="welcomeName">there</span></strong><small>TradeBridge member</small></span>
+        <button class="logout-button" id="logoutButton" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> TRADE WITH PURPOSE</p>
+          <h2>Useful goods<br>find their <em>next</em><br>connection.</h2>
+          <p class="hero-description">
+            Discover materials, surplus goods, and equipment. Find a useful
+            match and connect directly with the people listing it.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#marketplace">
+              Explore the marketplace <span>↗</span>
+            </a>
+            <a class="text-link" href="#how-it-works">
+              <span class="play-icon">▶</span> See how it works
+            </a>
+          </div>
+          <p class="hero-note"><span>✳</span> Keep useful goods moving forward.</p>
+        </div>
+
+        <div class="hero-photo">
+          <img src="./images/tradebridge-circular-materials-hero.png" alt="Useful reclaimed materials arranged in a circular composition" fetchpriority="high">
+          <span class="hero-photo-tag"><i>✳</i> MATERIALS FIND THEIR NEXT USE</span>
+          <div class="hero-photo-caption"><small>TRADE · CONNECT · REUSE</small><strong>Good finds.<br>New value.</strong></div>
+          <span class="hero-photo-stamp">TRADE<br>WITH<br>PURPOSE</span>
+        </div>
+      </section>
+
+      <section class="market-section" id="marketplace">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> EXPLORE THE MARKETPLACE</p>
+            <h2>Find goods for<br><em>your next project.</em></h2>
+          </div>
+          <p>Choose an industry to see related materials, surplus goods, and equipment.</p>
+        </div>
+
+        <div class="industry-picker" id="industryPicker">
+          <div class="industry-gate">
+            <div class="gate-icon" aria-hidden="true">✳</div>
+            <div class="gate-copy">
+              <p class="eyebrow">LET’S START WITH YOUR NEED</p>
+              <h3>Which industry are you looking for?</h3>
+              <p>Select an industry below to see its matching listings.</p>
+            </div>
+          </div>
+
+          <label class="industry-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="industrySearch" type="search"
+                   placeholder="Search industry type..."
+                   aria-label="Search industry types">
+          </label>
+          <div class="industry-options" id="industryOptions"></div>
+          <p class="industry-empty" id="industryEmpty" hidden>
+            No industries match your search.
+          </p>
+        </div>
+
+        <div class="market-results" id="marketResults" hidden>
+          <div class="results-heading">
+            <div>
+              <p class="eyebrow"><span></span> MATCHING LISTINGS</p>
+              <h3 id="selectedIndustryTitle"></h3>
+            </div>
+            <button class="change-industry" id="changeIndustry" type="button">
+              ← Back to industries
+            </button>
+          </div>
+
+          <div class="market-tools">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="itemSearch" type="search"
+                     placeholder="Search items or suppliers"
+                     aria-label="Search items or suppliers">
+            </label>
+            <label class="select-wrap">
+              <span class="sr-only">Filter by location</span>
+              <select id="locationFilter">
+                <option value="">All locations</option>
+                <option>Coimbatore</option>
+                <option>Chennai</option>
+                <option>Pune</option>
+                <option>Ahmedabad</option>
+                <option>Bengaluru</option>
+                <option>Hyderabad</option>
+                <option>Nashik</option>
+                <option>Jaipur</option>
+                <option>Mysuru</option>
+                <option>Surat</option>
+                <option>Mumbai</option>
+              </select>
+            </label>
+            <label class="select-wrap">
+              <span class="sr-only">Sort listings</span>
+              <select id="sortFilter">
+                <option value="featured">Featured first</option>
+                <option value="low">Price: low to high</option>
+                <option value="high">Price: high to low</option>
+              </select>
+            </label>
+            <span class="listing-count" id="listingCount"></span>
+          </div>
+
+          <div class="filter-row">
+            <div class="category-filters" id="categoryFilters" aria-label="Filter by category">
+              <button class="filter-chip active" type="button" data-category="all"><span class="color-emoji" aria-hidden="true">✨</span>All goods</button>
+              <button class="filter-chip" type="button" data-category="Raw materials"><span class="color-emoji" aria-hidden="true">🧶</span>Raw materials</button>
+              <button class="filter-chip" type="button" data-category="Surplus"><span class="color-emoji" aria-hidden="true">📦</span>Surplus</button>
+              <button class="filter-chip" type="button" data-category="Pre-owned"><span class="color-emoji" aria-hidden="true">♻️</span>Pre-owned</button>
+              <button class="filter-chip" type="button" data-category="Finished goods"><span class="color-emoji" aria-hidden="true">🛍️</span>Finished goods</button>
+            </div>
+            <button class="saved-filter" id="savedFilter" type="button" aria-pressed="false">
+              <span class="color-emoji" aria-hidden="true">💛</span>Saved <span id="savedCount">0</span>
+            </button>
+          </div>
+
+          <div class="listing-grid" id="listingGrid"></div>
+          <p class="empty-state" id="emptyState" hidden>
+            No listings match these filters. Try changing your search or filters.
+          </p>
+          <p class="demo-note">Sample listings and prices are for prototype display only.</p>
+        </div>
+      </section>
+
+      <section class="feature-break">
+        <div class="feature-photo">
+          <img
+            src="https://images.unsplash.com/photo-1739204618173-3e89def7140f?auto=format&fit=crop&w=1400&q=80"
+            alt="Reusable wooden pallets arranged in a warehouse"
+            loading="lazy">
+          <span class="photo-caption">GIVE USEFUL GOODS A SECOND ROUTE</span>
+        </div>
+        <div class="feature-copy">
+          <p class="eyebrow"><span></span> MORE VALUE, LESS WASTE</p>
+          <h2>One good find<br>can <em>go further.</em></h2>
+          <p>
+            Find surplus materials, pre-owned equipment, and ready-to-use goods.
+            A better match can keep useful items in circulation.
+          </p>
+          <a class="text-link" href="#marketplace">Browse the listings <span>↗</span></a>
+          <div class="feature-stats">
+            <span><b>Discover</b><small>goods by industry</small></span>
+            <span><b>Compare</b><small>price and location</small></span>
+            <span><b>Connect</b><small>with a supplier</small></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-section" id="how-it-works">
+        <div class="how-copy">
+          <p class="eyebrow"><span></span> SIMPLE, DIRECT, USEFUL</p>
+          <h2>Find it.<br><em>Connect. Trade.</em></h2>
+          <p>Discover goods, reach the people listing them, and arrange a trade that works for you.</p>
+        </div>
+        <div class="steps">
+          <article class="step-card">
+            <span>01</span><h3>Choose an industry</h3>
+            <p>Start with the kind of goods or equipment you need.</p>
+          </article>
+          <article class="step-card">
+            <span>02</span><h3>Explore listings</h3>
+            <p>Compare related materials, surplus stock, and equipment.</p>
+          </article>
+          <article class="step-card">
+            <span>03</span><h3>Connect with a supplier</h3>
+            <p>Ask about a listing and help useful goods find a next life.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-mark" aria-hidden="true">TB</div>
+        <div>
+          <p class="eyebrow">THE IDEA BEHIND TRADEBRIDGE</p>
+          <h2>Keep useful goods<br><em>moving forward.</em></h2>
+        </div>
+        <a class="button button-gold" href="#marketplace">Explore listings <span>↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand-block">
+          <a class="footer-wordmark" href="#home">Trade<span>Bridge</span></a>
+          <p>A marketplace where useful materials, surplus goods, and equipment find a new purpose.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#marketplace">Browse</a>
+          <button type="button" data-footer-panel="sell">Sell</button>
+          <button type="button" data-footer-panel="messages">Messages</button>
+          <button type="button" data-footer-panel="profile">Profile</button>
+        </nav>
+      </div>
+      <div class="footer-bottom"><span>TRADE · CONNECT · REUSE</span><a href="#home">Back to top ↑</a></div>
+    </footer>
+  </div>
+
+  <main class="login-screen" id="loginScreen">
+    <section class="login-story">
+      <p class="eyebrow"><span></span> A MARKETPLACE FOR USEFUL GOODS</p>
+      <h1>Find your next<br><em>good connection.</em></h1>
+      <p>Explore materials, surplus, and equipment—and connect with the people who have what you need.</p>
+      <div class="login-story-bottom"><span>01 <small>FIND</small></span><i></i><span>02 <small>CONNECT</small></span><i></i><span>03 <small>TRADE</small></span></div>
+    </section>
+    <section class="login-panel">
+      <p class="eyebrow"><span></span> YOUR NEXT CONNECTION STARTS HERE</p>
+      <h2>Welcome to TradeBridge</h2>
+      <p>Enter your name and contact to continue.</p>
+      <form id="loginForm">
+        <label for="loginName">First name</label>
+        <input id="loginName" name="name" autocomplete="given-name" placeholder="Enter your first name" required>
+        <label for="loginContact">Mobile number / email ID</label>
+        <input id="loginContact" name="contact" placeholder="98765 43210 or you@example.com" required>
+        <p class="login-error" id="loginError" role="alert" hidden></p>
+        <button class="button button-dark login-submit" type="submit">Continue to TradeBridge <span>↗</span></button>
+      </form>
+      <button class="guest-button" id="guestContinue" type="button">Continue as guest</button>
+      <small class="login-demo-note">Prototype access only. No account is verified.</small>
+    </section>
+  </main>
+
+  <aside class="side-panel" id="sidePanel" aria-label="TradeBridge navigation">
+    <div class="side-panel-head">
+      <a class="brand" href="#home" aria-label="TradeBridge home"><span class="brand-icon" aria-hidden="true"><span class="brand-orbit orbit-orange"></span><span class="brand-orbit orbit-gold"></span><span class="brand-dot"></span><span class="brand-letters"><b>T</b><b>B</b></span></span><span class="brand-name"><strong>Trade<span>Bridge</span></strong><small>TRADE · CONNECT · REUSE</small></span></a>
+      <button class="side-close" id="sideClose" type="button" aria-label="Close menu">×</button>
+    </div>
+    <nav class="side-nav" id="mainNav" aria-label="Main menu">
+      <p class="menu-heading">MAIN MENU</p>
+      <a class="menu-item" href="#home" data-tab="home"><span>🏠</span> Home</a>
+      <a class="menu-item" href="#marketplace" data-tab="browse"><span>🔎</span> Browse</a>
+      <button class="menu-item" type="button" data-menu-panel="sell"><span>📦</span> Sell</button>
+      <button class="menu-item" type="button" data-menu-panel="messages"><span>💬</span> Messages</button>
+      <button class="menu-item" type="button" data-menu-panel="history"><span>🕘</span> History</button>
+      <button class="menu-item" type="button" data-menu-panel="saved"><span>💛</span> Saved listings</button>
+      <a class="menu-item" href="#how-it-works" data-tab="how"><span>🧭</span> How it works</a>
+      <p class="menu-heading menu-heading-spaced">INFORMATION</p>
+      <button class="menu-item" type="button" data-menu-panel="settings"><span>⚙️</span> Settings</button>
+      <a class="menu-item" href="#about" data-tab="about"><span>🌟</span> About TradeBridge</a>
+      <button class="menu-item" type="button" data-menu-panel="help"><span>🛟</span> Help &amp; Support</button>
+      <button class="menu-item profile-menu-item" type="button" data-menu-panel="profile"><span>👤</span> Profile <b aria-hidden="true">↗</b></button>
+    </nav>
+  </aside>
+  <button class="menu-scrim" id="menuScrim" type="button" aria-label="Close menu" tabindex="-1"></button>
+
+  <dialog class="listing-dialog" id="listingDialog">
+    <button class="dialog-close" id="listingDialogClose" type="button" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+</body>
+</html>
